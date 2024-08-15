@@ -1,1 +1,14 @@
 This is my frist food delivery app
+Required Apps:
+    Python
+    Git
+    PGadmin
+    Postman
+Required Python Libraies:
+               # command to install Libraies 
+    Sqlalchemy - pip install sqlalchemy        
+    Psycopg2   - pip install psycopg2
+    Pandas     - pip install pandas
+    Flask      - pip install flask
+
+
