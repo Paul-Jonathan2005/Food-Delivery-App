@@ -1,10 +1,12 @@
 from sqlalchemy import create_engine
+from urllib.parse import quote_plus
+
 
 db_name='Food Delivery'
 db_host='localhost'
 db_port=5432
 db_user='postgres'
-db_pass='jona@2005'
+db_pass=quote_plus('jona@2005')
 menu_table='menu'
 user_table='user_details'
 cart_table='cart'
