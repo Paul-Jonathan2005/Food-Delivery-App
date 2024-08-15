@@ -14,4 +14,17 @@ class FoodMenu:
         insert_query = text(insert_query)
         with self.engine.begin() as conn:
             conn.execute(insert_query)
+
+    def add_item(self, item_type, item_name, item_cost):
+        insert_query = f"insert into {self.menu_table} values ('{item_type}', '{item_name}', '{item_cost}')"
+        insert_query = text(insert_query)
+        with self.engine.begin() as conn:
+            conn.execute(insert_query)
+
+    def add_item_to_cart(self, user_name, number_of_items, item_name, item_cost):
+        insert_query = f"insert into {self.cart_table} values ('{user_name}', '{number_of_items}', '{item_name}', '{item_cost}')"
+        insert_query = text(insert_query)
+        with self.engine.begin() as conn:
+            conn.execute(insert_query)
+    
         
