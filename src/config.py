@@ -13,3 +13,6 @@ cart_table='cart'
 menutype_table='menu_types'
 
 db_engine=create_engine(f'postgresql+psycopg2://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}')
+
+app_host = '0.0.0.0'
+app_port = '1221'

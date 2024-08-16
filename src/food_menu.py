@@ -42,14 +42,14 @@ class FoodMenu:
         all_item_types = [x[0] for x in all_item_types]
         return {'item_types': all_item_types}
     
-    def get_all_items_by_item_type(self):
-        get_query = f"select item_name, item_cost from {self.menu_table}"
+    def get_all_items_by_item_type(self, item_type):
+        get_query = f"select item_name, item_cost from {self.menu_table} where item_type = '{item_type}'"
         all_items_by_item_type = self.execute_get_query(get_query)
         all_items_by_item_type = [{'item_name':name,'item_cost':cost} for name,cost in all_items_by_item_type]
         return {'items': all_items_by_item_type}
     
-    def get_items_in_cart_by_user_name(self):
-        get_query = f"select item_name, number_of_items, item_cost from {self.cart_table}"
+    def get_items_in_cart_by_user_name(self, user_name):
+        get_query = f"select item_name, number_of_items, item_cost from {self.cart_table} where user_name = '{user_name}'"
         get_items_in_cart_by_user_name = self.execute_get_query(get_query)
         get_items_in_cart_by_user_name = [{'item_name':name, 'no_of_items':number_of_items, 'item_cost':cost} for name,number_of_items,cost in get_items_in_cart_by_user_name]
         return {'cart_items': get_items_in_cart_by_user_name}
