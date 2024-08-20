@@ -18,3 +18,5 @@ elif st.session_state.page == "order_food":
     order_food.show(config)
 elif st.session_state.page == "menu_page":
     get_menu.show(config)
+elif st.session_state.page == "food_items":
+    get_menu.show(config)
