@@ -33,31 +33,44 @@ def add_to_cart(item_name, item_cost, config):
     
 def show_items(items, config):
 
-    col1, col2 = st.columns([3, 1])
+    col1, col2, col3 = st.columns([3, 1, 1])
     
     with col1:
         st.title(f"{st.session_state.selected_item_type}")
-    
+
     with col2:
+        if st.button("Back"):
+            st.session_state.page = "menu_page"
+            st.rerun()
+
+    with col3:
         if st.button("Go to Cart"):
             st.session_state.page = "go_to_cart"
             st.rerun()
 
     if items:
         for item in items:
+            col4, col5, col6 = st.columns([3,3,2])
             item_name = item.get("item_name", "Unnamed Item")
             item_cost = item.get("item_cost", "Unknown Cost")
             
             # Layout for each item
-            st.write(f"**{item_name}**")
-            st.write(f"Cost: ${item_cost}")
-            if item_name in [cart_item for cart_item in st.session_state.cart]:
-                st.success("Added to cart!", icon="✅")
-            else:
-                if st.button("Add to Cart", key=item_name):
-                    success = add_to_cart(item_name, item_cost, config)
-                    if success:
-                        st.rerun()
+            with col4:
+                st.write(f"**{item_name}**")
+
+            with col5:
+                st.write(f"Cost: ${item_cost}")
+
+            with col6:
+                if item_name in [cart_item for cart_item in st.session_state.cart]:
+                    st.success("Added to cart!", icon="✅")
+                else:
+
+                    with col6:
+                        if st.button("Add to Cart", key=item_name):
+                            success = add_to_cart(item_name, item_cost, config)
+                            if success:
+                                st.rerun()
    
 def show(config):
     item_type =  st.session_state.selected_item_type 

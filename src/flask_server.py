@@ -126,5 +126,13 @@ def remove_item_from_cart(user_name, item_name):
     except Exception as e:
         return jsonify({"Status": "Failure"}), 400
     
+@app.route('/delete-item-to-cart/<user_name>', methods=['DELETE'])
+def delete_items_in_cart_by_user_name(user_name):
+    try :
+        menu.delete_items_in_cart_by_user_name(user_name)
+        return jsonify({"Status": 'Success'}), 200
+    except Exception as e:
+        return jsonify({"Status": "Failure"}), 400
+    
 if __name__ == '__main__':
     app.run(host = config.app_host, port = config.app_port)

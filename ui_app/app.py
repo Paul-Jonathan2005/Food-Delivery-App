@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import welcome, user_info, order_food, get_menu, food_items, go_to_cart
+from pages import welcome, user_info, order_food, get_menu, food_items, go_to_cart, payment_page, thank_you
 from utils.config_loader import load_config
 
 # Load configuration
@@ -23,3 +23,7 @@ elif st.session_state.page == "food_items":
     food_items.show(config)
 elif st.session_state.page == "go_to_cart":
     go_to_cart.show(config)
+elif st.session_state.page == "payment_page":
+    payment_page.show(config)
+elif st.session_state.page == "thank_you_page":
+    thank_you.show(config)

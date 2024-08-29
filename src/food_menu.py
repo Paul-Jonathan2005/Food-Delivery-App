@@ -49,7 +49,7 @@ class FoodMenu:
         return {'items': all_items_by_item_type}
     
     def get_items_in_cart_by_user_name(self, user_name):
-        get_query = f"select item_name, number_of_items, item_cost from {self.cart_table} where user_name = '{user_name}'"
+        get_query = f"select item_name, number_of_items, item_cost from {self.cart_table} where user_name = '{user_name}' order by item_name asc"
         get_items_in_cart_by_user_name = self.execute_get_query(get_query)
         get_items_in_cart_by_user_name = [{'item_name':name, 'no_of_items':number_of_items, 'item_cost':cost} for name,number_of_items,cost in get_items_in_cart_by_user_name]
         return {'cart_items': get_items_in_cart_by_user_name}
@@ -67,4 +67,8 @@ class FoodMenu:
 
     def remove_item_from_cart(self, user_name, item_name):
         delete_query = f"delete from {self.cart_table} where user_name = '{user_name}' and item_name = '{item_name}'"
+        self.execute_query(delete_query)
+
+    def delete_items_in_cart_by_user_name(self, user_name):
+        delete_query = f"delete from {self.cart_table} where user_name = '{user_name}'"
         self.execute_query(delete_query)
