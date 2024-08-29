@@ -7,7 +7,7 @@ def get_items_by_item_type(config, item_type):
     try:
         response = requests.get(api_url)
         response.raise_for_status()
-        return response.json()  # Assuming the API returns a JSON list of menu items
+        return response.json()  
     except requests.exceptions.RequestException as e:
         st.error(f"Failed to fetch menu items: {e}")
         return []
@@ -61,7 +61,7 @@ def show_items(config):
                 st.write(f"**{item_name}**")
 
             with col5:
-                st.write(f"Cost: ${item_cost}")
+                st.write(f"Cost: Rs{item_cost}")
 
             with col6:
                 if item_name in [cart_item for cart_item in st.session_state.cart]:
