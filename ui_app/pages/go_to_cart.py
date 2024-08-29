@@ -81,7 +81,7 @@ def show(config):
             col1, col2, col3, col4, col5, col6 = st.columns([2.5, 1, 1, 1, 1.5, 1])
 
             with col1:
-                st.write(f"**{item_name}** - ${item_cost}")
+                st.write(f"**{item_name}** - Rs{item_cost}")
             
             with col2:
                 if st.button("Minus", key=f"minus-{item_name}"):
