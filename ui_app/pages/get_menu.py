@@ -19,13 +19,16 @@ def select_item_type(item_type):
     st.rerun()
 
 def show(config):
-    if st.session_state.page == "menu_page":
-        st.title(config["item_type_title"])
-        
-        
-        menu_items = fetch_menu_items(config)
-        all_items_types = menu_items.get("item_types", [])
-    
+    st.title(config["item_type_title"])
+    menu_items = fetch_menu_items(config)
+    all_items_types = menu_items.get("item_types", [])
+
+    col1, col2,col3 =st.columns([1,1,1])
+    with col1:
+        pass
+    with col3:
+        pass
+    with col2:
         if all_items_types:
             for item in all_items_types:
                 

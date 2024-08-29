@@ -1,5 +1,5 @@
 {
-    "welcome_message": "Welcome to Karun's Multi Cuisine Restaurant",
+    "welcome_message": "Welcome to KPJ Multi Cuisine Restaurant",
     "get_started_button_text": "Get Started",
     "user_info_title": "User Information",
     "form_labels": {
@@ -11,7 +11,7 @@
     "submit_button_text": "Save",
     "backend_end_url":"http://127.0.0.1:1221/",
     "user_data_saved": "Your Data Saved Successfully",
-    "order_food_button_text": "Order The Tastiest Food Ever Been",
+    "order_food_button_text": "Order The Tastiest Food",
     "item_type_title": "Please Select The Item Type"
     
 }

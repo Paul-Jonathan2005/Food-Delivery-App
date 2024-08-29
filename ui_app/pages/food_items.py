@@ -31,8 +31,10 @@ def add_to_cart(item_name, item_cost, config):
         st.error(f"Failed to add item to cart: {e}")
         return False
     
-def show_items(items, config):
-
+def show_items(config):
+    item_type =  st.session_state.selected_item_type 
+    items = get_items_by_item_type(config, item_type)
+    items = items.get("items", [])
     col1, col2, col3 = st.columns([3, 1, 1])
     
     with col1:
@@ -71,12 +73,8 @@ def show_items(items, config):
                             success = add_to_cart(item_name, item_cost, config)
                             if success:
                                 st.rerun()
-   
-def show(config):
-    item_type =  st.session_state.selected_item_type 
-    items = get_items_by_item_type(config, item_type)
-    items = items.get("items", [])
-    if items:
-        show_items(items, config)
     else:
         st.write(f"No item types are availale for {item_type}")
+   
+def show(config):
+    show_items(config)

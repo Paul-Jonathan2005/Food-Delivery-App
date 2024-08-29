@@ -104,13 +104,21 @@ def show(config):
             
             with col6:
                 st.write(f"Rs {item_price}")
-        
-        st.write(f"Total:  Rs {total_price}")
 
-        if st.button("Pay The Bill"):
-            st.session_state.total_price = total_price
-            st.session_state.page = "payment_page"
-            st.rerun()
+        col7,col8,col9 = st.columns([1,1,1])
+    
+        with col7:
+            pass
+        with col9:
+            pass
+        with col8:
+        
+            st.write(f"Total Amount:  Rs {total_price}")
+
+            if st.button("Pay The Bill"):
+                st.session_state.total_price = total_price
+                st.session_state.page = "payment_page"
+                st.rerun()
 
     else:
         st.write("Empty")

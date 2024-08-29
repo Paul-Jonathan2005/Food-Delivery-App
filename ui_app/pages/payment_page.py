@@ -15,8 +15,15 @@ def show(config):
 
     
     qr_code_image = Image.open(r"C:/Users/Kakani Nageswara Rao/OneDrive/Documents/Food-Delivery-App/ui_app/assets/QR Code.png")  
-    st.image(qr_code_image, caption="Scan to Pay via PhonePe", use_column_width=True)
+    st.image(qr_code_image, caption="Scan to Pay via PhonePe", width=250)
 
-    if st.button("Continue"):
-        st.session_state.page = "thank_you_page"
-        st.rerun()
+    col1,col2,col3 = st.columns([1,1,1])
+    
+    with col1:
+        pass
+    with col3:
+        pass
+    with col2:
+        if st.button("Continue"):
+            st.session_state.page = "thank_you_page"
+            st.rerun()

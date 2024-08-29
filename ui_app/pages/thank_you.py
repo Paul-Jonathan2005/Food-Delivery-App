@@ -18,6 +18,13 @@ def show(config):
     st.session_state.cart = []
     st.session_state.selected_item_type = None
 
-    if st.button("Go To Home"):
-        st.session_state.page = "welcome"
-        st.rerun()
+    col1,col2,col3 = st.columns([1,1,1])
+    
+    with col1:
+        pass
+    with col3:
+        pass
+    with col2:
+        if st.button("Go To Home"):
+            st.session_state.page = "welcome"
+            st.rerun()
